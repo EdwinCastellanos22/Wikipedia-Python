@@ -1,6 +1,9 @@
 import wikipedia as wiki
+
+#Establecer Lenguaje
 wiki.set_lang("es")
 
+#Decorador
 def decor(func):
     def wrap():
         print("=====================")
@@ -9,10 +12,12 @@ def decor(func):
         print("\n")
     return wrap
 
+#Bienvenida
 @decor    
 def bienvenida():
     print("|  Wikipedia Python  |")
 
+#Variable de busqueda(lista vacia) y busqueda
 bus= ""    
 @decor
 def buscar():
@@ -20,6 +25,7 @@ def buscar():
     print("|  Que estas Buscando  |")
     bus= input(": ")
 
+#Variable de resultado y muestra de resultados
 res=[]     
 @decor 
 def mostrar():
@@ -30,6 +36,7 @@ def mostrar():
         print(num, i)
         num += 1
 
+#Seleccion de la opcion elegida y muestra de el contenido
 @decor
 def opcion():
     global res
@@ -38,7 +45,8 @@ def opcion():
     print("\n")
     print("====" + res[opc] + "====")
     print(wiki.summary(res[opc]))
-    
+
+#Funcion para el break    
 @decor
 def adios():
     print("Hasta Luego :)")
